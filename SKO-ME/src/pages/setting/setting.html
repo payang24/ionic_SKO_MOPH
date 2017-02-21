@@ -1,0 +1,71 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Setting</ion-title>
+  </ion-navbar>
+ 
+
+    <ion-segment>
+      <ion-segment-button value="people">
+        ประชาชน
+      </ion-segment-button>
+      <ion-segment-button value="moph">
+        เจ้าหน้าที่
+      </ion-segment-button>
+    </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+ <!--<ion-item>
+    <ion-label floating>หน่วยงาน</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>-->
+
+   <ion-item>
+    <ion-label floating>เลขบัตรประชาชน</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>วัน/เดือน/ปีเกิด</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+   <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <!--<ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>-->
+
+    <ion-item>
+      <ion-icon name="finger-print" color="primary" item-left></ion-icon>
+      <ion-label>ยอมรับเงื่อนไขแอพ</ion-label>
+      <ion-toggle checked="true"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="notifications" color="primary" item-left></ion-icon>
+      <ion-label>รับข้อมูลข่าวสาร</ion-label>
+      <ion-toggle checked="true" [(ngModel)]="accept" (ionChange)="changeToggle()"></ion-toggle>
+    </ion-item>
+
+      
+  </ion-list>
+
+  <button ion-button full>ตกลง</button>
+  <ion-buttons end>
+  <button ion-button full (click)='logout()'>ออกจากระบบ</button>
+  </ion-buttons>
+</ion-content>

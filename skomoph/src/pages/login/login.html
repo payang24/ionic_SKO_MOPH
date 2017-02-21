@@ -1,0 +1,28 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-list-header>กรุณาลงชื่อเข้าใช้งาน</ion-list-header>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<button type="button" block ion-button (click)="login()"
+[disabled]="!username || !password">Login</button>
+</ion-content>

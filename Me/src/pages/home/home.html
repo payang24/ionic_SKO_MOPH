@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!--<h2>SAKAEO MOPH</h2>-->
+  <ion-list no-lines>
+    <ion-list-header>Users</ion-list-header>
+    <button ion-item *ngFor="let user of users" (click)="itemSelected(user)">
+      <!--โชว์ข้อมูลที่ต้องการ-->
+      {{ user.username }}
+      <p>{{ user.email }}</p>
+      <p>{{ user.group_name }}</p>
+      </button>
+  </ion-list>
+  <ion-fab right bottom (click)="goAddPage()">
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

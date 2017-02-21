@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button  icon-left (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+        Logout
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home-page">
+  <ion-searchbar (ionInput)="search($event)" debounce="500"></ion-searchbar>
+<ion-list>
+  <!--<ion-list-header>SERVICE LIST</ion-list-header>-->
+  <ion-item>
+    <ion-label>วันที่รับบริการ</ion-label>
+    <ion-datetime 
+    displayFormat="DDDD MMM D, YYYY"
+    pickerFormat="D MMMM YYYY"
+    max="2018"
+    monthNames="มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม, สิงหาคม, กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+    monthShortNames="ม.ค,ก.พ,มี.ค,เม.ย,พ.ค,มิ.ย,ก.ค,ส.ค,ก.ย,ต.ค,พ.ย,ธ.ค"
+    dayNames="อาทิตย์,จันทร์,อังคาร,พุธ,พฤหัสบดี,ศุกร์,เสาร์"
+    dayShortNames="อา,จ,อ,พ,พฤ,ศ,ส"
+    [(ngModel)]="vstdate" (ionChange)="getServices()"></ion-datetime>
+  </ion-item>
+  <button ion-item (click)="showMenu(service)" *ngFor="let service of services">
+    <ion-avatar item-left>
+      <img src="./assets/img/man.png" *ngIf="service.sex == '1'">
+      <img src="./assets/img/woman.png" *ngIf="service.sex == '2'">
+    </ion-avatar>
+    <h2>{{ service.ptname }}</h2>
+    <p>HN: {{ service.hn }}</p>
+    <ion-note item-right>
+      {{ service.vsttime }}
+    </ion-note>
+  </button>
+</ion-list>
+</ion-content>
